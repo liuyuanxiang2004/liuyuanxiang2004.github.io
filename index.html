@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人知识库</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .top-carousel {
+            height: 25vh;
+        }
+         .navbar {
+            height: 12.5vh;
+            background-color: lightblue;
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav-link:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+        
+        .banner-section {
+            height: 50vh;
+        }
+        .banner-box {
+            border: 1px solid #ccc;
+            background-color: lightblue;
+            padding: 20px;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+        }
+        .banner-year {
+            color: green;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .banner-text {
+            color: red;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .banner-text:hover {
+            text-decoration: underline;
+        }
+        .bottom-section {
+            height: 12.5vh;
+            background-color: brown;
+            color: white;
+			text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Section -->
+    <div id="topCarousel" class="carousel slide top-carousel" data-bs-ride="carousel">
+        <div class="carousel-inner h-100">
+            <div class="carousel-item active h-100">
+                <img src="images/top1.jpg" class="d-block w-100 h-100" alt="Slide 1" style="object-fit: cover;">
+            </div>
+            <div class="carousel-item h-100">
+                <img src="images/top2.jpg" class="d-block w-100 h-100" alt="Slide 2" style="object-fit: cover;">
+            </div>
+            <div class="carousel-item h-100">
+                <img src="images/top3.jpg" class="d-block w-100 h-100" alt="Slide 3" style="object-fit: cover;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Nav Section -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index01.html">个人知识库</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">首页</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">课程</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index01.html">实践类</a></li>
+                            <li><a class="dropdown-item" href="index02.html">理论类</a></li>
+                            <li><a class="dropdown-item" href="index03.html">体育类</a></li>
+                            <li><a class="dropdown-item" href="index04.html">软件类</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index05.html">资源</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index06.html">学习数据</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index07.html">我的</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="搜索">
+                    <button class="btn btn-outline-success" type="submit">搜索</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- Banner Section -->
+    <div class="container banner-section py-4">
+        <div class="row h-50 mb-3">
+            <div class="col-6">
+                <div class="banner-box h-100" style="background-image: url(images/banner02.jpg)">
+                    <div class="banner-year">2022.09-2023.06</div>
+                    <a href="index08.html" class="banner-text">大一</a>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="banner-box h-100" style="background-image: url(images/banner01.jpg)">
+                    <div class="banner-year">2023.09-2024.06</div>
+                    <a href="index09.html" class="banner-text">大二</a>
+                </div>
+            </div>
+        </div>
+        <div class="row h-50">
+            <div class="col-6">
+                <div class="banner-box h-100" style="background-image: url(images/banner03.jpg)">
+                    <div class="banner-year">2024.09-2025.06</div>
+                    <a href="index10.html" class="banner-text">大三</a>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="banner-box h-100" style="background-image: url(images/banner04.jpg)">
+                    <div class="banner-year">2025.09-2026.06</div>
+                    <a href="index11.html" class="banner-text">大四</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="bottom-section d-flex align-items-center">
+        <div class="container">
+            <div>联系我们</div>
+            <div>电话号码: 17691213735</div>
+            <div>电子邮件: L19585414892@qq.com</div>
+        </div>
+    </div>
+</body>
+</html>

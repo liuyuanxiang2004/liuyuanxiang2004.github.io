@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>笔记-实践类</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+
+        /* Top section */
+        .top {
+            background-color: #00008B;
+            height: 15vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .top h1 {
+            color: black;
+            font-size: 2.5em;
+        }
+
+        /* Navigation section */
+        .nav {
+            background-color: lightblue;
+            height: 12.5vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            padding: 0.5rem 1rem;
+            font-size: 1.1em;
+        }
+
+        .knowledge-base {
+            font-size: 1.3em !important;
+        }
+
+        .nav-links li:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: lightblue;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 12px 16px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .search-bar input {
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        /* Banner section */
+        .banner {
+            height: 60vh;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .practice-card {
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .card-title {
+            background-color: lightblue;
+            padding: 1rem;
+            font-size: 1.3em;
+            text-align: center;
+        }
+
+        .card-content {
+            padding: 1rem;
+            background-color: white;
+            text-align: left;
+        }
+
+        /* Bottom section */
+        .bottom {
+            height: 12.5vh;
+            background-color: brown;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .banner {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .search-bar {
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <h1>课程-实践类</h1>
+    </div>
+
+    <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="index.html"class="knowledge-base">个人知识库</a></li>
+            <li><a href="index.html">首页</a></li>
+            <li class="dropdown">
+                <a href="#">课程</a>
+                <div class="dropdown-content">
+                    <a href="#">实践类</a>
+                    <a href="index02.html">理论类</a>
+                    <a href="index03.html">体育类</a>
+                    <a href="index04.html">软件类</a>
+                </div>
+            </li>
+            <li><a href="index05.html">资源</a></li>
+            <li><a href="index06.html">学习数据</a></li>
+            <li><a href="index07.html">我的</a></li>
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索...">
+        </div>
+    </nav>
+
+    <div class="banner">
+        <div class="practice-card">
+            <div class="card-title"><b>新闻采访与写作</b></div>
+            <div class="card-content">
+                <p><b>实践内容：</b>外出采访</p>
+                <p><b>实践地点：</b>铜川</p>
+                <p><b>收获：</b>对新闻采访有了更深入的了解</p>
+            </div>
+        </div>
+
+        <div class="practice-card">
+            <div class="card-title"><b>新闻摄影</b></div>
+            <div class="card-content">
+                <p><b>实践内容：</b>多次外出摄影</p>
+                <p><b>实践地点：</b>西安市内</p>
+                <p><b>收获：</b>学到了摄影技术，了解摄影知识</p>
+            </div>
+        </div>
+
+        <div class="practice-card">
+            <div class="card-title"><b>广播电视新闻</b></div>
+            <div class="card-content">
+                <p><b>实践内容：</b>视频拍摄，制作视频报道新闻</p>
+                <p><b>实践地点：</b>茯茶镇</p>
+                <p><b>收获：</b>了解广播及电视类新闻的产出过程</p>
+            </div>
+        </div>
+
+        <div class="practice-card">
+            <div class="card-title"><b>数字影像技术</b></div>
+            <div class="card-content">
+                <p><b>实践内容：</b>拍摄短剧及练习使用无人机</p>
+                <p><b>实践地点：</b>校内</p>
+                <p><b>收获：</b>了解摄像知识、学会摄像机简单使用以及无人机的使用</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom">
+        <p>联系我们</p>
+        <p>电话号码: 17691213735</p>
+        <p>电子邮件: L19585414892@qq.com</p>
+    </div>
+</body>
+</html>

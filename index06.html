@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学习数据</title>
+    <!-- 使用本地 ECharts 文件 -->
+    <script src="js/echarts.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+
+        #top {
+            height: 15vh;
+            background-color: #00008B;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #top h1 {
+            color: white;
+            font-size: 3em;
+        }
+
+        nav {
+            height: 12.5vh;
+            background-color: #ADD8E6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            padding: 10px;
+            position: relative;
+            font-size: 1em;
+        }
+
+        .nav-links a:first-child {
+            font-size: 1em;
+            font-weight: normal;
+        }
+
+        .nav-links .knowledge-base {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown > a {
+            font-size: 1em;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ADD8E6;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 12px 16px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        #banner {
+            height: auto;
+            min-height: 60vh;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .chart {
+            width: 45%;
+            height: 90%;
+        }
+
+        #bottom {
+            height: 12.5vh;
+            background-color: brown;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .charts-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            margin: 30px 0;
+            padding: 0 20px;
+        }
+
+        .chart-box {
+            width: 45%;
+            min-width: 300px;
+            height: 400px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .chart-box {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="top">
+        <h1>学习数据</h1>
+    </div>
+
+    <nav>
+        <div class="nav-links">
+            <a href="index.html" class="knowledge-base">个人知识库</a>
+            <a href="index.html">首页</a>
+            <div class="dropdown">
+                <a href="#">课程</a>
+                <div class="dropdown-content">
+                    <a href="index01.html">实践类</a>
+                    <a href="index02.html">理论类</a>
+                    <a href="index03.html">体育类</a>
+                    <a href="index04.html">软件类</a>
+                </div>
+            </div>
+            <a href="index05.html">资源</a>
+            <a href="index06.html">学习数据</a>
+            <a href="index07.html">我的</a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索...">
+        </div>
+    </nav>
+
+    <div id="banner">
+        <div class="charts-container">
+            <div id="gradeChart" class="chart-box"></div>
+            <div id="attendanceChart" class="chart-box"></div>
+            <div id="studyTimeChart" class="chart-box"></div>
+            <div id="skillRadarChart" class="chart-box"></div>
+        </div>
+    </div>
+
+    <div id="bottom">
+        <p>联系我们</p>
+        <p>电话号码: 17691213735</p>
+        <p>电子邮件: L19585414892@qq.com</p>
+    </div>
+
+    <script>
+        // 成绩趋势图
+        const gradeChart = echarts.init(document.getElementById('gradeChart'));
+        const gradeOption = {
+            title: {
+                text: '主要课程成绩趋势',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['大学英语', '大学体育', '思修'],
+                bottom: 0
+            },
+            xAxis: {
+                type: 'category',
+                data: ['第一次', '期中', '期末']
+            },
+            yAxis: {
+                type: 'value',
+                min: 60,
+                max: 100
+            },
+            series: [
+                {
+                    name: '大学英语',
+                    type: 'line',
+                    data: [75, 82, 89],
+                    smooth: true
+                },
+                {
+                    name: '大学体育',
+                    type: 'line',
+                    data: [72, 78, 85],
+                    smooth: true
+                },
+                {
+                    name: '思修',
+                    type: 'line',
+                    data: [85, 88, 92],
+                    smooth: true
+                }
+            ]
+        };
+        gradeChart.setOption(gradeOption);
+
+        // 出勤率饼图
+        const attendanceChart = echarts.init(document.getElementById('attendanceChart'));
+        const attendanceOption = {
+            title: {
+                text: '课程出勤统计',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            legend: {
+                bottom: 0
+            },
+            series: [
+                {
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    data: [
+                        { value: 90, name: '准时到课' },
+                        { value: 5, name: '迟到' },
+                        { value: 3, name: '请假' },
+                        { value: 2, name: '缺勤' }
+                    ],
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        attendanceChart.setOption(attendanceOption);
+
+        // 学习时间柱状图
+        const studyTimeChart = echarts.init(document.getElementById('studyTimeChart'));
+        const studyTimeOption = {
+            title: {
+                text: '每周学习时间分布',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            xAxis: {
+                type: 'category',
+                data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+            },
+            yAxis: {
+                type: 'value',
+                name: '小时'
+            },
+            series: [
+                {
+                    type: 'bar',
+                    data: [4.5, 5, 4, 5.5, 4.5, 6, 3],
+                    itemStyle: {
+                        color: '#ADD8E6'
+                    }
+                }
+            ]
+        };
+        studyTimeChart.setOption(studyTimeOption);
+
+        // 能力雷达图
+        const skillRadarChart = echarts.init(document.getElementById('skillRadarChart'));
+        const skillRadarOption = {
+            title: {
+                text: '综合能力评估',
+                left: 'center'
+            },
+            radar: {
+                indicator: [
+                    { name: '专业知识', max: 100 },
+                    { name: '实践能力', max: 100 },
+                    { name: '创新思维', max: 100 },
+                    { name: '团队协作', max: 100 },
+                    { name: '表达能力', max: 100 },
+                    { name: '学习效率', max: 100 }
+                ]
+            },
+            series: [
+                {
+                    type: 'radar',
+                    data: [
+                        {
+                            value: [85, 78, 82, 90, 75, 88],
+                            name: '个人能力',
+                            areaStyle: {
+                                color: 'rgba(173, 216, 230, 0.6)'
+                            }
+                        }
+                    ]
+                }
+            ]
+        };
+        skillRadarChart.setOption(skillRadarOption);
+
+        // 响应窗口调整
+        window.addEventListener('resize', function() {
+            gradeChart.resize();
+            attendanceChart.resize();
+            studyTimeChart.resize();
+            skillRadarChart.resize();
+        });
+    </script>
+</body>
+</html>

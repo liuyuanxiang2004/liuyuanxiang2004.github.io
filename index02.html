@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>笔记-理论类</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+
+        /* Top section */
+        .top {
+            background-color: #00008B;
+            height: 15vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .top h1 {
+            color: black;
+            font-size: 2.5em;
+        }
+
+        /* Navigation section */
+        .nav {
+            background-color: lightblue;
+            height: 12.5vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            padding: 0.5rem 1rem;
+            font-size: 1.1em;
+        }
+
+        .knowledge-base {
+            font-size: 1.3em !important;
+        }
+
+        .nav-links li:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: lightblue;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 12px 16px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .search-bar input {
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        /* Banner section */
+        .banner {
+            height: 60vh;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .practice-card {
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .card-title {
+            background-color: lightblue;
+            padding: 1rem;
+            font-size: 1.3em;
+            text-align: center;
+        }
+
+        .card-content {
+            padding: 1rem;
+            background-color: white;
+            text-align: left;
+        }
+
+        /* Bottom section */
+        .bottom {
+            height: 12.5vh;
+            background-color: brown;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .banner {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .search-bar {
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <h1>课程-理论类</h1>
+    </div>
+
+    <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="index.html"class="knowledge-base">个人知识库</a></li>
+            <li><a href="index.html">首页</a></li>
+            <li class="dropdown">
+                <a href="#">课程</a>
+                <div class="dropdown-content">
+                    <a href="index01.html">实践类</a>
+                    <a href="#">理论类</a>
+                    <a href="index03.html">体育类</a>
+                    <a href="index04.html">软件类</a>
+                </div>
+            </li>
+            <li><a href="index05.html">资源</a></li>
+            <li><a href="index06.html">学习数据</a></li>
+            <li><a href="index07.html">我的</a></li>
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索...">
+        </div>
+    </nav>
+
+    <div class="banner">
+        <div class="practice-card">
+          <div class="card-title"><b>传播学概论</b></div>
+            <div class="card-content">
+                <p><b>课程讲述:</b>人内传播（如自我表露、自我认知等理论）、人际传播（例如米德的“主我与客我”理论、库利的“镜中我”理论）、大众传播（议程设置、沉默的螺旋、培养理论等）。<br></p>
+                <p><b>收获:</b>系统掌握了传播学科的基础理论体系，了解了传播活动从微观个体到宏观社会层面的运行机制和规律，为深入学习专业相关知识奠定了坚实理论根基。</p>
+              
+          </div>
+        </div>
+
+        <div class="practice-card">
+            <div class="card-title"><b>新闻学概论</b></div>
+            <div class="card-content">
+                <p><b>课程讲述:</b>新闻定义与本质(真实性、客观性)、新闻价值理论：(时效性、重要性、显著性、接近性和趣味性)、新闻事业的产生与发展。</p>
+                <p><b>收获:</b>熟悉新闻行业的发展脉络，掌握了新闻的核心要义。具备质疑和审视新闻真实性、客观性与公正性。</p>
+            </div>
+        </div>
+
+        <div class="practice-card">
+            <div class="card-title"><b>媒介环境学</b></div>
+            <div class="card-content">
+                <p><b>课程讲述:</b>马歇尔·麦克卢汉(媒介即讯息、媒介延伸论)、尼尔·波兹曼(媒介环境论)、哈罗德·英尼斯(媒介偏向论)、约书亚·梅洛兹(媒介情景论)。</p>
+<p><b>收获:</b>这些理论为我搭建起全面且深入的媒介认知框架，提升了我对媒介现象的解读能力和对媒介发展趋势的预判力，让我应对各类媒介信息都更具洞察力和思辨性。</p>         
+            </div>
+        </div>
+
+        <div class="practice-card">
+            <div class="card-title"><b>视觉文化</b></div>
+            <div class="card-content">
+                <p><b>课程讲述:</b>米切尔(图像转向理论)、贝尔廷(图像人类学)、福柯(凝视理论)、文化挪用、粉丝文化(文本盗猎)等。</p>
+<p><b>收获:</b>能够从文化、社会、心理等多个维度解读广告、影视、艺术作品等视觉文本背后的深层意涵，提升了批判性思维能力，更加敏锐地感知视觉信息所传达的价值观和意识形态。</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom">
+        <p>联系我们</p>
+        <p>电话号码: 17691213735</p>
+        <p>电子邮件: L19585414892@qq.com</p>
+    </div>
+</body>
+</html>

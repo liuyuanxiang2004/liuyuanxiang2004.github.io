@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人信息</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+
+        /* Top section */
+        .top {
+            background-color: #00008B;
+            height: 15vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .top h1 {
+            color: black;
+            font-size: 2.5em;
+        }
+
+        /* Navigation section */
+        .nav {
+            background-color: lightblue;
+            height: 12.5vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            padding: 0.5rem 1rem;
+            font-size: 1.1em;
+        }
+
+        .knowledge-base {
+            font-size: 1.3em !important;
+        }
+
+        .nav-links li:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: lightblue;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 12px 16px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .search-bar input {
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        /* Banner section */
+        .banner {
+            height: 60vh;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .practice-card {
+            width: 80%;
+            max-width: 800px;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .card-title {
+            background-color: lightblue;
+            padding: 1rem;
+            font-size: 1.3em;
+            text-align: center;
+        }
+
+        .card-content {
+            padding: 1rem;
+            background-color: white;
+            text-align: left;
+        }
+
+        /* Bottom section */
+        .bottom {
+            height: 12.5vh;
+            background-color: brown;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .practice-card {
+                width: 95%;
+            }
+            
+            .nav {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .search-bar {
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <h1>个人</h1>
+    </div>
+
+    <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="index.html"class="knowledge-base">个人知识库</a></li>
+            <li><a href="index.html">首页</a></li>
+            <li class="dropdown">
+                <a href="#">课程</a>
+                <div class="dropdown-content">
+                    <a href="index01.html">实践类</a>
+                    <a href="index02.html">理论类</a>
+                    <a href="index03.html">体育类</a>
+                    <a href="index04.html">软件类</a>
+                </div>
+            </li>
+            <li><a href="index05.html">资源</a></li>
+            <li><a href="index06.html">学习数据</a></li>
+            <li><a href="#">我的</a></li>
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索...">
+        </div>
+    </nav>
+
+    <div class="banner">
+        <div class="practice-card">
+            <div class="card-title">
+              <p><b>基本信息</b></p>
+            </div>
+            <div class="card-content">
+                <p><b>姓名：</b>刘远湘</p>
+                <p><b>民族：</b>汉</p>
+                <p><b>出生日期：</b>2004.11.01</p>
+                <p><b>兴趣爱好：</b>玩游戏、运动</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom">
+        <p>联系我们</p>
+        <p>电话号码: 17691213735</p>
+        <p>电子邮件: L19585414892@qq.com</p>
+    </div>
+</body>
+</html>

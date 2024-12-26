@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>笔记-体育类</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+
+        /* Top section */
+        .top {
+            background-color: #00008B;
+            height: 15vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .top h1 {
+            color: black;
+            font-size: 2.5em;
+        }
+
+        /* Navigation section */
+        .nav {
+            background-color: lightblue;
+            height: 12.5vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            padding: 0.5rem 1rem;
+            font-size: 1.1em;
+        }
+
+        .knowledge-base {
+            font-size: 1.3em !important;
+        }
+
+        .nav-links li:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: lightblue;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 12px 16px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .search-bar input {
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        /* Banner section */
+        .banner {
+            height: 60vh;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .practice-card {
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .card-title {
+            background-color: lightblue;
+            padding: 1rem;
+            font-size: 1.3em;
+            text-align: center;
+        }
+
+        .card-content {
+            padding: 1rem;
+            background-color: white;
+            text-align: left;
+        }
+
+        /* Bottom section */
+        .bottom {
+            height: 12.5vh;
+            background-color: brown;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .banner {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .search-bar {
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <h1>课程-体育类</h1>
+    </div>
+
+    <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="index.html"class="knowledge-base">个人知识库</a></li>
+            <li><a href="index.html">首页</a></li>
+            <li class="dropdown">
+                <a href="#">课程</a>
+                <div class="dropdown-content">
+                    <a href="index01.html">实践类</a>
+                    <a href="index02.html">理论类</a>
+                    <a href="#">体育类</a>
+                    <a href="index04.html">软件类</a>
+                </div>
+            </li>
+            <li><a href="index05.html">资源</a></li>
+            <li><a href="index06.html">学习数据</a></li>
+            <li><a href="index07.html">我的</a></li>
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索...">
+        </div>
+    </nav>
+
+    <div class="banner">
+        <div class="practice-card">
+          <div class="card-title"><b>三路长拳</b></div>
+            <div class="card-content">
+                <p><b>课程讲述:</b>教授其基本动作、招式，像冲拳、推掌、踢腿等规范动作，帮助学生掌握起势到收势的连贯套路，提升身体协调性、灵活性与平衡能力。<br></p>
+                <p><b>收获:</b>力量、速度、灵敏性、耐力和柔韧性均得以提升。精准掌握了长拳动作规范、节奏及套路，身体协调性与动作准确性显著提高，为学习其他运动筑牢根基。</p>
+          </div>
+        </div>
+
+        <div class="practice-card">
+            <div class="card-title"><b>健康体适能</b></div>
+            <div class="card-content">
+                <p><b>课程讲述:</b>课程内容涵盖心肺耐力、肌肉力量、肌肉耐力、柔韧性和身体成分等要素。教授学生短跑、障碍往返跑等技巧。</p>
+                <p><b>收获:</b>心肺耐力增强，肌肉力量和耐力提升，身体成分得到优化，脂肪减少、肌肉量增加，柔韧性改善，关节活动更自如，精力更加充沛，疲劳感减少，日常生活更轻松高效。</p>
+            </div>
+        </div>
+
+        <div class="practice-card">
+            <div class="card-title"><b>网球基础</b></div>
+            <div class="card-content">
+                <p><b>课程讲述:</b>教授基本技术，如握拍方法、正手击球、反手击球、发球、截击等，从分解动作到连贯击球逐步进阶。安排练习时间培养学员球感、反应速度与运动能力。</p>
+<p><b>收获:</b>力量、速度、耐力和敏捷性都有所增强。手臂、肩部和腿部力量得到锻炼。熟练掌握了网球的基本技巧，能够完成稳定的对打回合，对网球的控制能力显著提高。</p>         
+            </div>
+        </div>
+
+        <div class="practice-card">
+            <div class="card-title"><b>篮球基础</b></div>
+            <div class="card-content">
+                <p><b>课程讲述:</b>涵盖篮球理论知识以及实践练习。重点教授篮球基本动作，通过大量的基础练习，帮助学员逐步提升球感和控球能力，培养手脚协调配合能力和基本的篮球意识。</p>
+<p><b>收获:</b>体能显著提升，力量、速度、耐力与弹跳能力在频繁的跑跳、对抗中得以增强；熟练掌握运球、传球、投篮和防守等基础技能；培养了竞争意识和坚韧精神，塑造积极向上的心态。</p>
+          </div>
+        </div>
+    </div>
+
+    <div class="bottom">
+        <p>联系我们</p>
+        <p>电话号码: 17691213735</p>
+        <p>电子邮件: L19585414892@qq.com</p>
+    </div>
+</body>
+</html>

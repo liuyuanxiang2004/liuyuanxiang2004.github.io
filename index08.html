@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人课表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+
+        /* 顶部区域 */
+        .top {
+            height: 15vh;
+            background-color: #00008B;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .top h1 {
+            color: black;
+            font-size: 2.5em;
+            text-align: center;
+        }
+
+        /* 导航栏 */
+        .nav {
+            height: 12.5vh;
+            background-color: #ADD8E6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            padding: 10px;
+            position: relative;
+        }
+
+        .nav-links .knowledge-base {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ADD8E6;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .search-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-bar {
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .menu-icon {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .menu-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #ADD8E6;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .menu-icon:hover .menu-dropdown {
+            display: block;
+        }
+
+        /* 内容区域 */
+        .banner {
+            height: auto;
+            min-height: 60vh;
+            padding: 30px 20px;
+            background-color: white;
+        }
+
+        .tables-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .table-section {
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .schedule-table {
+            width: 100%;
+            background-color: #ADD8E6;
+            border-collapse: collapse;
+        }
+
+        .schedule-table td {
+            border: 1px solid black;
+            padding: 10px;
+            font-weight: bold;
+            color: black;
+            cursor: pointer;
+        }
+
+        .table-caption {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* 底部区域 */
+        .bottom {
+            height: 12.5vh;
+            background-color: #8B4513;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 弹窗样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .modal-close {
+            float: right;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .tables-container {
+
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .schedule-table {
+                width: 90%;
+                margin-bottom: 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+
+        .table-section h3 {
+            color: #00008B;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .modal {
+            background-color: #f8f9fa;
+            min-width: 300px;
+            border: 2px solid #ADD8E6;
+        }
+
+        .modal h3 {
+            color: #00008B;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ADD8E6;
+            padding-bottom: 10px;
+        }
+
+        .modal p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .modal button {
+            background-color: #00008B;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .modal button:hover {
+            background-color: #0000CD;
+        }
+
+        .schedule-table td {
+            transition: background-color 0.3s;
+        }
+
+        .schedule-table td:hover {
+            background-color: #87CEEB;
+        }
+
+        /* 添加模态框背景样式 */
+        .modal-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        /* 更新模态框显示逻辑 */
+        .modal {
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <h1>个人课表</h1>
+    </div>
+
+   <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="index.html" class="knowledge-base">个人知识库</a></li>
+            <li><a href="index.html">首页</a></li>
+            <li class="dropdown">
+                <a href="#">课程</a>
+                <div class="dropdown-content">
+                    <a href="index01.html">实践类</a>
+                    <a href="index02.html">理论类</a>
+                    <a href="index03.html">体育类</a>
+                    <a href="index04.html">软件类</a>
+                </div>
+            </li>
+            <li><a href="index05.html">资源</a></li>
+            <li><a href="index06.html">学习数据</a></li>
+            <li><a href="index07.html">我的</a></li>
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索...">
+        </div>
+        <div class="menu-icon">
+            ☰
+            <div class="menu-dropdown">
+                <a href="#">大一</a>
+                <a href="index09.html">大二</a>
+                <a href="index10.html">大三</a>
+                <a href="index11.html">大四</a>
+            </div>
+        </div>
+    </nav>
+
+ <div class="banner">
+        <h2 style="text-align: center; margin-bottom: 30px;">2022大一课表</h2>
+        <div class="tables-container">
+            <div class="table-section">
+                <h3>大一上学期</h3>
+                <table class="schedule-table">
+                    <tbody>
+                        <tr><td data-teacher="马莉" data-grade="60" onclick="showModal(this)">大学英语（Ⅰ）</td></tr>
+                        <tr>
+                          <td data-teacher="张学见" data-grade="84" onclick="showModal(this)">中国近代史纲要</td></tr>
+                        <tr><td data-teacher="扬将" data-grade="71" onclick="showModal(this)">数学文化</td></tr>
+                        <tr><td data-teacher="姜鹏" data-grade="61" onclick="showModal(this)">传播学概论</td></tr>
+                        <tr><td data-teacher="黄宝新" data-grade="79" onclick="showModal(this)">大学体育</td></tr>
+                        <tr><td data-teacher="齐亚宁" data-grade="88" onclick="showModal(this)">新生专业导读</td></tr>
+                        <tr><td data-teacher="唐文娟" data-grade="83" onclick="showModal(this)">公共写作</td></tr>
+                        <tr><td data-teacher="张烨，魏潇然" data-grade="67" onclick="showModal(this)">数字媒体技术</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-section">
+                <h3>大一下学期</h3>
+                <table class="schedule-table">
+                    <tbody>
+                        <tr><td data-teacher="陈瑾" data-grade="88" onclick="showModal(this)">视觉传达技术</td></tr>
+                        <tr><td data-teacher="马莉" data-grade="61" onclick="showModal(this)">大学英语（Ⅱ）</td></tr>
+                        <tr><td data-teacher="諕团虎" data-grade="86" onclick="showModal(this)">军事理论</td></tr>
+                        <tr><td data-teacher="李莉" data-grade="67" onclick="showModal(this)">新闻学概论</td></tr>
+                        <tr><td data-teacher="张媛，郭欣荣" data-grade="74" onclick="showModal(this)">媒介技术史</td></tr>
+                        <tr><td data-teacher="崔梦" data-grade="80" onclick="showModal(this)">思想道德与政治</td></tr>
+                        <tr><td data-teacher="黄宝新" data-grade="80" onclick="showModal(this)">健康体适能</td></tr>
+                        <tr><td data-teacher="姬翔" data-grade="74" onclick="showModal(this)">大学计算机</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom">
+        <p>联系我们</p>
+        <p>电话号码: 17691213735</p>
+        <p>电子邮件: L19585414892@qq.com</p>
+    </div>
+
+    <div class="modal" id="courseModal">
+        <h3>课程信息</h3>
+        <p>授课教师：<span id="teacher"></span></p>
+        <p>成绩：<span id="grade"></span></p>
+        <button onclick="closeModal()">关闭</button>
+    </div>
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+
+    <script>
+        function showModal(element) {
+            const modal = document.getElementById('courseModal');
+            const backdrop = document.getElementById('modalBackdrop');
+            const teacher = document.getElementById('teacher');
+            const grade = document.getElementById('grade');
+            
+            teacher.textContent = element.getAttribute('data-teacher');
+            grade.textContent = element.getAttribute('data-grade');
+            
+            modal.style.display = 'block';
+            backdrop.style.display = 'block';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('courseModal');
+            const backdrop = document.getElementById('modalBackdrop');
+            
+            modal.style.display = 'none';
+            backdrop.style.display = 'none';
+        }
+
+        // 点击模态框外部关闭模态框
+        window.onclick = function(event) {
+            const modal = document.getElementById('courseModal');
+            const backdrop = document.getElementById('modalBackdrop');
+            if (event.target == backdrop) {
+                modal.style.display = 'none';
+                backdrop.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
